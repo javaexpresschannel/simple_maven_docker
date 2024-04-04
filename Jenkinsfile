@@ -30,9 +30,9 @@ pipeline {
         stage('Docker Login'){
             
             steps {
-                 withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
-                    sh "docker login -u javaexpress -p ${Dockerpwd}"
-                }
+                 withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+        			sh 'docker login -u javaexpress -p $PASSWORD'
+   		 }
             }                
         }
           
